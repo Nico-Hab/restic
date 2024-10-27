@@ -708,7 +708,7 @@ func (res *Restorer) verifyFile(ctx context.Context, target string, node *restic
 		sizeMatches = false
 	}
 
-	if trustMtime && fi.ModTime().Equal(node.ModTime) && sizeMatches {
+	if sizeMatches {
 		return &fileState{nil, sizeMatches}, buf, nil
 	}
 
